@@ -1,6 +1,8 @@
-<ul>
+<h1>Your items:</h1>
+
+<ul class="item__list">
 <% @items.each do |item| %>
-  <li>
+  <li class="item__single">
     <div>
       <strong>Name</strong>: <%= item.name %>
     </div>

@@ -1,0 +1,12 @@
+.item__list {
+  padding: 0;
+  list-style: none;
+}
+.item__single {
+  text-align: center;
+  margin: 20px 20%;
+  padding: 40px;
+  border-radius: 10px;
+  background-color: $item-bg-color;
+  line-height: 30px;
+}

@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>GroceryData</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>GroceryData</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= link_to 'Home', '/' %>
+    <div class="header">
+      <a href="/"><%= image_tag( 'food.png', class: "header__homeButton", height: '150px', width: '150px' ) %></a>
+      <div class="header__loginNav">
+        <h3>
+          <% if current_customer %>
+            Signed in as: <%= current_customer.name %> | <%= link_to 'Log Out', '/logout' %>
+          <% else %>
+            <%= link_to 'Log In', '/login' %> | <%= link_to 'Sign Up', '/signup' %>
+          <% end %>
+        </h3>
+      </div>
+    </div>
 
-<% if current_customer %>
-  Signed in as: <%= current_customer.name %> | <%= link_to 'Log Out', '/logout' %>
-<% else %>
-  <%= link_to 'Log In', '/login' %> | <%= link_to 'Sign Up', '/signup' %>
-<% end %>
+    <div class="body">
 
-<%= yield %>
+      <%= yield %>
 
-</body>
+    </div>
+  </body>
 </html>
