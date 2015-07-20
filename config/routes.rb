@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'items#index'
+  root 'home#index'
+
+  get '/items', to: 'items#index'
 
   get '/signup', to: 'customers#new'
   post '/customers', to: 'customers#create'

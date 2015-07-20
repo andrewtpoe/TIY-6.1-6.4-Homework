@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<%= link_to 'Home', '/' %>
+
 <% if current_customer %>
   Signed in as: <%= current_customer.name %> | <%= link_to 'Log Out', '/logout' %>
 <% else %>

@@ -1,10 +1,7 @@
 class ItemsController < ApplicationController
+
   def index
-    if current_customer
-      @items = Item.for_customer(current_customer)
-    else
-      redirect_to '/login'
-    end
+    @items = Item.for_customer(current_customer)
   end
 
 end
