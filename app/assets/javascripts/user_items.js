@@ -9,7 +9,6 @@ $(document).ready(function() {
   $("div.item__group" + index).show();
   $("div.item__groupNum").text("Page " + index + " of " + count);
 
-
   $("a.item__prevGroup").click(function() {
     if (index > 1) {
       $("div.item__group" + index).hide();

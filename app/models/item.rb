@@ -4,7 +4,7 @@ class Item < ActiveRecord::Base
   validates :name, :price_in_cents, presence: true
 
   def self.for_customer(customer)
-    where(customer_id: customer.id)
+      where(customer_id: customer.id)
   end
 
 end
