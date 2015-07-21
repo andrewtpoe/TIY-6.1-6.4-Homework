@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %title GroceryData
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body
+
+    .header
+      = link_to image_tag('food.png', class: 'header__homeButton', height: '150px', width: '150px'), "/"
+      .header__loginNav
+        %h3
+          - if current_customer
+            = "Signed in as: #{current_customer.name} | "
+            = link_to 'Log Out', '/logout'
+          - else
+            = link_to 'Log In', '/login'
+            = " | "
+            = link_to ' Sign Up', '/signup'
+
+    .body
+
+      = yield

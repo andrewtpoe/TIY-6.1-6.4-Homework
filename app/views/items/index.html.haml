@@ -1,0 +1,13 @@
+%h1 Your items:
+
+%ul.item__list
+  - @items.each do |item|
+    %li.item__single
+      %strong Name:
+      = item.name
+      %br
+      %strong Category:
+      = item.category
+      %br
+      %strong Price:
+      = number_to_currency(item.price_in_cents / 100)
