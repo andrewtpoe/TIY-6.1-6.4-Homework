@@ -1,13 +1,28 @@
 %h1 Your items:
 
+- split_at = 10
+
 %ul.item__list
-  - @items.each do |item|
-    %li.item__single
-      %strong Name:
-      = item.name
-      %br
-      %strong Category:
-      = item.category
-      %br
-      %strong Price:
-      = number_to_currency(item.price_in_cents / 100)
+  - @items.each_slice(split_at).with_index do |slice, i|
+    - i += 1
+    %div{class: "item__group#{i}", index: i}
+      - slice.each do |item|
+        %div.item__single
+          %strong Name:
+          = item.name
+          %br
+          %strong Category:
+          = item.category
+          %br
+          %strong Price:
+          = number_to_currency(item.price_in_cents / 100)
+          %br
+
+%div{class: "item__groupNav"}
+  %a{class: "item__prevGroup"}
+    = "Prev"
+
+  %div{class: "item__groupNum"}
+
+  %a{class: "item__nextGroup"}
+    = "Next"
